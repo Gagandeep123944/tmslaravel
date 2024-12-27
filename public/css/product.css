@@ -154,8 +154,8 @@ a:hover{ text-decoration:none; }
     .product-grid{ margin-bottom: 30px; }
 }
 
-.row {
+/* .row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 25px;
-}
+} */

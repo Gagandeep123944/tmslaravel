@@ -13,3 +13,5 @@ Route::get('/register', function(){
 })->name('register');
 
 Route::post('/signup',[tms::class, 'signup'])->name('signup');
+Route::post('/login',[tms::class, 'login'])->name('login');
+Route::post('/logout',[tms::class, 'logout'])->name('logout');

@@ -28,15 +28,22 @@ Register
         <div class="user_options-forms" id="user_options-forms">
         <div class="user_forms-login">
             <h2 class="forms_title">Login</h2>
-            <form class="forms_form">
+            <form class="forms_form" data-url="{{ route('login') }}" id="login">
+            @csrf
             <fieldset class="forms_fieldset">
                 <div class="forms_field">
-                <input type="email" placeholder="Email" class="forms_field-input" required autofocus />
+                <input type="email" name="email" placeholder="Email" class="forms_field-input" autofocus />
+                <span id="email_error" class="text-danger"></span>
                 </div>
                 <div class="forms_field">
-                <input type="password" placeholder="Password" class="forms_field-input" required />
+                <input type="password" name="password" placeholder="Password" class="forms_field-input"  />
+                <span id="password_error" class="text-danger"></span>
                 </div>
             </fieldset>
+
+            <div class="invalid_credentials">
+                <span id="invalid_credentials" class="text-danger"></span>
+            </div>
             <div class="forms_buttons">
                 <button type="button" class="forms_buttons-forgot">Forgot password?</button>
                 <input type="submit" value="Log In" class="forms_buttons-action">
@@ -50,16 +57,18 @@ Register
             <fieldset class="forms_fieldset">
                 <div class="forms_field">
                 <input type="text" name="fullname" placeholder="Full Name" class="forms_field-input"  />
+                <span id="name_error" class="text-danger"></span>
                 </div>
                 <div class="forms_field">
                 <input type="email" name="email" placeholder="Email" class="forms_field-input"  />
+                <span id="email_error" class="text-danger"></span>
                 </div>
                 <div class="forms_field">
                 <input type="password" name="password" placeholder="Password" class="forms_field-input"  />
+                <span id="password_error" class="text-danger"></span>
                 </div>
             </fieldset>
             <div class="forms_buttons" >
-            <span id="errormessage" class="text-danger">test</span>
             <span id="loginGoogle"><i class="fa-brands fa-google"></i></span>
                 <input type="submit" value="Sign up" class="forms_buttons-action">
             </div>

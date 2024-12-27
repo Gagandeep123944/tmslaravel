@@ -35,14 +35,90 @@ $('#signup').on('submit', function(e){
         type: "post",
         data: data,
         success: function(res) {
-            console.log(res);
+           if(res.message == "User created successfully!"){
+            $('.user_registered-login').trigger('click');
+           }
         },
         error: function(res){
             let error = res.responseJSON.errors;
             console.log(error);
-            if(error.email != ""){
-
+            if(error.email){
+               $('#email_error').text(error.email[0]);
+            }else{
+              $('#email_error').text("");
             }
+            if(error.fullname){
+              $('#name_error').text(error.fullname[0]);
+            }else{
+              $('#name_error').text("");
+            }
+
+            if(error.password){
+              $('#password_error').text(error.password[0]);
+            }else{
+              $('#password_error').text("");
+            }
+
+        }
+    });
+  });
+
+
+
+
+
+
+
+  $('#login').on('submit', function(e){
+    e.preventDefault();
+  
+    let data = $(this).serialize();
+    let url = $(this).data('url');
+
+
+  
+    $.ajax({
+        url: url, 
+        type: "post",
+        data: data,
+        success: function(res) {
+          console.log('success');
+          if(res.message == "Login successful"){
+             window.location.href = "/";   
+          }
+        },
+        error: function(res){
+         
+            console.log(res.responseJSON.message)
+            if(res.responseJSON.errors){
+              let error = res.responseJSON.errors;
+                if(error.email){
+                  $('#email_error').text(error.email[0]);
+              }else{
+                $('#email_error').text("");
+              }
+  
+              if(error.password){
+                $('#password_error').text(error.password[0]);
+              }else{
+                $('#password_error').text("");
+              }
+ 
+            }else{
+              $('#password_error').text("");
+              $('#email_error').text("");
+            }
+            
+
+            if(res.responseJSON.message == "Invalid credentials"){
+              $('#invalid_credentials').text(res.responseJSON.message);
+            }else{
+              $('#invalid_credentials').text("");
+            }
+
+
+            
+
         }
     });
   });

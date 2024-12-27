@@ -20,7 +20,7 @@
           <nav class="gdlr-navigation sf-js-enabled sf-arrows" id="gdlr-main-navigation" role="navigation">
             <ul id="menu-main-1" class="sf-menu gdlr-main-menu">
               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-3720 current_page_item menu-item-4245menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-3720 current_page_item menu-item-4245 gdlr-normal-menu"><a href="/">Home</a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4247menu-item menu-item-type-post_type menu-item-object-page menu-item-4247 gdlr-normal-menu"><a href="https://timezonehostel.com/rooms/">Rooms</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4247menu-item menu-item-type-post_type menu-item-object-page menu-item-4247 gdlr-normal-menu"><a href="https://timezonehostel.com/rooms/">Upload Products</a></li>
               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4347menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4347 gdlr-normal-menu">
                 <a href="https://timezonehostel.com/services-facilities/" class="sf-with-ul-pre sf-with-ul">Services &amp; Facilities</a>
                 <ul class="sub-menu" style="display: none;">
