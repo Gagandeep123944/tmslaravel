@@ -116,12 +116,11 @@ $('#signup').on('submit', function(e){
               $('#invalid_credentials').text("");
             }
 
-
-            
-
         }
     });
   });
+
+
 
 
 

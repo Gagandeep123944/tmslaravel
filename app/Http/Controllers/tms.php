@@ -71,4 +71,9 @@ class tms extends Controller
 
         return redirect('/register');
     }
+
+
+    public function uploadProductToDb(Request $request){
+        dd($request);
+    }
 }

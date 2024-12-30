@@ -11,7 +11,14 @@
     @stack('css')
 </head>
 <body>
-    @include('layouts.header')
+    
+    @if(auth()->check() && auth()->user()->role == 'admin') 
+     @include('layouts.adminhaeder')
+    @else
+    
+
+        @include('layouts.header')
+    @endif
 
     <main>
         @yield('content')

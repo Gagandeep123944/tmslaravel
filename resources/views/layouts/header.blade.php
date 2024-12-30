@@ -9,7 +9,6 @@
         <div class="gdlr-logo">
           <div class="gdlr-logo-inner">
             <a href="https://timezonehostel.com">
-            <img src="https://timezonehostel.com/wp-content/uploads/2017/05/timezone-logo.png" alt="" width="500" height="304" data-normal="https://timezonehostel.com/wp-content/uploads/2017/05/timezone-logo.png">						</a>
             <a href="https://timezonehostel.com" class="gdlr-responsive-navigation dl-menuwrapper" id="gdlr-responsive-navigation">
             <button class="dl-trigger">Open Menu</button>
             </a>
