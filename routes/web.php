@@ -20,3 +20,5 @@ Route::get('/uploadProduct',function(){
 })->name('uploadProduct');
 
 Route::post('/PrdocutUpData',[tms::class, 'uploadProductToDb'])->name('PrdocutUpData');
+
+Route::get('/dashboard', [tms::class, 'dashboard'])->name('dashboard');

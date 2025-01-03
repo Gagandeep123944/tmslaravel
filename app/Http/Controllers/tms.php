@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\products;
 use Illuminate\Support\Facades\Auth;
 
 class tms extends Controller
@@ -49,10 +50,12 @@ class tms extends Controller
         $credentials = $request->only('email', 'password');
     
         if (Auth::attempt($credentials)) {
+            $users = Auth::user();
             $request->session()->regenerate(); 
             return response()->json([
                 'message' => 'Login successful',
                 'user' => Auth::user(),
+                'role' => $users->role,
             ], 200);
         }
     
@@ -74,6 +77,56 @@ class tms extends Controller
 
 
     public function uploadProductToDb(Request $request){
-        dd($request);
+
+        $location = $request->location;
+        $Tour_price = $request->Tour_price;
+        $Review = $request->Review;
+
+        $request->validate([
+            'location' => 'required|string',
+            'Tour_price' => 'required|numeric',
+            'Review' => 'required|numeric'
+
+        ]);
+
+        try{
+           $product =  products::create([
+                'location' => $location,
+                'Tour_price' => $Tour_price,
+                'Review' => $Review
+              ]);
+
+              return response()->json([
+                'message' => 'Product created successfully!',
+                'product' => $product,
+            ], 201);
+
+        } catch(\Exception $e){
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], 201);
+        }
+        
+
+
+    }
+
+
+    public function dashboard(){
+        $users = Auth::user();
+
+        $name = $users->name;
+        $email = $users->email;
+        $password = $users->password;
+        $id = $users->id;
+
+
+        return view('Dashboard', compact('name', 'email', 'password', 'id'));
+
+
+
+        // I want to redirect these variables on view(/dashboard)
+
+
     }
 }

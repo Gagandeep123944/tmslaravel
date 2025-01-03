@@ -1,6 +1,6 @@
 $(document).on('submit', '#product_upload', function(e) {
     e.preventDefault();
-    e.preventDefault();
+
 
     let formData = new FormData(this); 
     let data = $(this).serialize(); 
@@ -18,14 +18,12 @@ $(document).on('submit', '#product_upload', function(e) {
         formData.append(key, value);
     }
 
-    for (let [key, value] of formData.entries()) {
-        console.log(`${key}:`, value);
-    }
+    
 
     $.ajax({
         url: $(this).data('action'),
         type:"post",
-        data:formData,
+        data:data,
         success:function(res){
             console.log(res);
         },

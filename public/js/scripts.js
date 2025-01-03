@@ -83,8 +83,10 @@ $('#signup').on('submit', function(e){
         data: data,
         success: function(res) {
           console.log('success');
-          if(res.message == "Login successful"){
-             window.location.href = "/";   
+          if(res.message == "Login successful" && res.role == "admin"){
+             window.location.href = "/dashboard";   
+          }else{
+            window.location.href = "/";
           }
         },
         error: function(res){

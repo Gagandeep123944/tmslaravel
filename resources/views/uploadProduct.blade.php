@@ -13,11 +13,13 @@
   <div class="form-group">
     <label for="product_name">Location</label>
     <input type="text" name="location" class="form-control" id="product_name"  placeholder="Enter Tour location">
+    <span id="error_product_name"></span>
   </div>
 
   <div class="form-group">
     <label for="Tour_price">Tour Price</label>
     <input type="number" name="Tour_price" class="form-control" id="Tour_price"  placeholder="Enter Tour Price">
+    <span id="error_total_price"></span>
   </div>
  
   <div class="form-group">
@@ -30,11 +32,6 @@
         <option value="5">5</option>
      </select>
 </div>
-
-  <div class="form-group">
-    <label for="product_name"></label>
-    <input type="text" name="product_name" class="form-control" id="product_name"  placeholder="Enter Product Name">
-  </div>
 
   <div class="form-group">
     <label for="product_image">Product Image</label>
