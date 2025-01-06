@@ -60,7 +60,7 @@
                     <tr>
                         <td>{{$name}}</td>
                         <td>{{$email}}</td>
-                        <td>{{$email}}</td>
+                        <td><button class="btn btn-primary" id="update Profile" data-id="{{$id}}">Update Profile</button></td>
                     </tr>
                 </tbody>
                     

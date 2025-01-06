@@ -15,9 +15,7 @@ Route::get('/register', function(){
 Route::post('/signup',[tms::class, 'signup'])->name('signup');
 Route::post('/login',[tms::class, 'login'])->name('login');
 Route::post('/logout',[tms::class, 'logout'])->name('logout');
-Route::get('/uploadProduct',function(){
-    return view('uploadProduct');
-})->name('uploadProduct');
+Route::get('/uploadProduct',[tms::class, 'uploadProduct'])->name('uploadProduct');
 
 Route::post('/PrdocutUpData',[tms::class, 'uploadProductToDb'])->name('PrdocutUpData');
 

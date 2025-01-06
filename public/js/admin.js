@@ -1,6 +1,8 @@
 $(document).on('submit', '#product_upload', function(e) {
     e.preventDefault();
 
+    $('.roller_div').show();
+
 
     let formData = new FormData(this); 
     let data = $(this).serialize(); 
@@ -25,11 +27,29 @@ $(document).on('submit', '#product_upload', function(e) {
         type:"post",
         data:data,
         success:function(res){
-            console.log(res);
+            $('.roller_div').hide();
+           
+
+            if(res.message == 'Product created successfully!'){
+                 alert('Prodcut created successfully');
+                 window.location.href = window.location.href;
+
+            }
         },
         error:function(res){
-            console.log('error response');
-            console.log(res);
+            $('.roller_div').hide();               
+            if(res.responseJSON.errors.Tour_price){
+                console.log("a gyahai");
+                $('#error_total_price').text(res.responseJSON.errors.Tour_price[0])
+            }else{
+                $('#error_total_price').text("")
+            }
+            if(res.responseJSON.errors.location){
+              $('#error_product_name').text(res.responseJSON.errors.location[0])
+            }else{
+                $('#error_product_name').text("")
+            }
+           
         }
 
 

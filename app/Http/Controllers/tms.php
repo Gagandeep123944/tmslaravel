@@ -123,10 +123,17 @@ class tms extends Controller
 
         return view('Dashboard', compact('name', 'email', 'password', 'id'));
 
+    }
+
+    public function uploadProduct(){
+        $users = Auth::user();
+
+        $name = $users->name;
+        $email = $users->email;
+        $password = $users->password;
+        $id = $users->id;
 
 
-        // I want to redirect these variables on view(/dashboard)
-
-
+        return view('uploadProduct', compact('name', 'email', 'password', 'id'));
     }
 }
