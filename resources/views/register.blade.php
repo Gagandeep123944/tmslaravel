@@ -28,7 +28,7 @@ Register
         <div class="user_options-forms" id="user_options-forms">
         <div class="user_forms-login">
             <h2 class="forms_title">Login</h2>
-            <form class="forms_form" data-url="{{ route('login') }}" id="login">
+            <form class="forms_form" data-url="{{ route('loginform') }}" id="login">
             @csrf
             <fieldset class="forms_fieldset">
                 <div class="forms_field">
