@@ -136,4 +136,36 @@ class tms extends Controller
 
         return view('uploadProduct', compact('name', 'email', 'password', 'id'));
     }
+
+    public function profileUpdate(Request $request){
+        $name = $request->name;
+        $id = $request->id;
+        $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        try {
+            $user = User::findOrFail($request->id);
+            $user->update([
+                'name' => $name
+            ]);
+            
+
+            return response()->json([
+                'message' => 'User Updated Successfully!!!',
+                'user' => $user
+            ],201);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th->getMessage()
+            ],500);
+        }
+    }
+
+    public function index(){
+
+        $products = products::all();
+
+        return view('welcome', compact('products'));
+    }
 }

@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\tms;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [tms::class, 'index'])->name('index');
 
 
 Route::get('/login', function(){
@@ -21,3 +19,4 @@ Route::get('/uploadProduct',[tms::class, 'uploadProduct'])->name('uploadProduct'
 Route::post('/PrdocutUpData',[tms::class, 'uploadProductToDb'])->name('PrdocutUpData')->middleware('auth');
 
 Route::get('/dashboard', [tms::class, 'dashboard'])->name('dashboard')->middleware('auth'); 
+Route::post('/profileUpdate', [tms::class, 'profileUpdate'])->name('profileUpdate'); 
