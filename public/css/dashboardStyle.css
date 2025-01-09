@@ -23,7 +23,11 @@ body {
     color: var(--text-primary);
     overflow-x: hidden;
 }
-
+nav.sidebar a.active {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    box-shadow: 0 0 15px var(--primary-color);
+}
 .dashboard {
     display: flex;
     min-height: 100vh;
@@ -603,4 +607,15 @@ th {
     align-items: center;
     z-index: 999;
     background: #0000003d;
+}
+div#myTable_wrapper {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+div#myTable_wrapper {
+    width: 100%;
 }

@@ -14,6 +14,25 @@
 
 
 @section('content')
+<style>
+  select#Review {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+input#product_image {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+</style>
 <div class="container">
 <form id="product_upload"  method="POST" enctype="multipart/form-data" class="product_upload" style="margin:50px" data-action="{{ route('PrdocutUpData') }}">
     @csrf

@@ -18,6 +18,7 @@
 
     
     @stack('css')
+
 </head>
 <body>
     <div class="roller_div" style="display:none;"><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
@@ -29,11 +30,18 @@
                 <img src="https://via.placeholder.com/50" alt="Logo" class="logo">
                 <h2>AdminPro</h2>
             </div>
-            <ul class="nav-linkss ">
-                <a href="/dashboard"><li class="active" data-page="dashboard"><i class="fas fa-home"></i>Dashboard</li></a>
-                <a href="/uploadProduct"><li data-page="Upload_tour"><i class="fas fa-chart-line"></i>Upload Tours</li></a>
-                <a href="/booked_tours"><li data-page="booked_tour"><i class="fas fa-shopping-cart"></i>Booked Tours</li></a>
-            </ul>
+            <ul class="nav-links">
+            <a href="{{ route('dashboard') }}" class="anchor_li {{ request()->routeIs('dashboard') ? 'active' : '' }}" data-page="dashboard">
+                <li><i class="fas fa-home"></i>Dashboard</li>
+            </a>
+            <a href="{{ route('uploadProduct') }}" class="anchor_li {{ request()->routeIs('uploadProduct') ? 'active' : '' }}" data-page="Upload_tour">
+                <li><i class="fas fa-chart-line"></i>Upload Tours</li>
+            </a>
+            <a href="/booked_tours" class="anchor_li {{ request()->is('booked_tours') ? 'active' : '' }}" data-page="booked_tour">
+                <li><i class="fas fa-shopping-cart"></i>Booked Tours</li>
+            </a>
+        </ul>
+
         </nav>
         <main class="main-content">
             <header>
@@ -45,8 +53,8 @@
                     <span>@yield('Name')</span>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown-menu" id="profileDropdown">
-                        <a href="/Dashboard"><i class="fas fa-user"></i> Profile</a>
-                        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a href="{{ route('dashboard') }}"><i class="fas fa-user"></i> Profile</a>
+                        <a href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </div>
             </header>

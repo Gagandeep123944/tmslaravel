@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-links li');
+    const navLinks = document.querySelectorAll('.nav-links .anchor_li');
     const pages = document.querySelectorAll('.page-content');
-
+   console.log(navLinks);
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            console.log("i am here")
+          //  e.preventDefault();
             const targetPage = this.getAttribute('data-page');
             
             navLinks.forEach(l => l.classList.remove('active'));
@@ -33,14 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    profileDropdown.querySelectorAll('a').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const action = this.getAttribute('href').substring(1);
-            showNotification('info', `${action.charAt(0).toUpperCase() + action.slice(1)} action triggered`);
-            profileDropdown.classList.remove('show');
-        });
-    });
+    // profileDropdown.querySelectorAll('a').forEach(item => {
+    //     item.addEventListener('click', function(e) {
+    //         e.preventDefault();
+    //         const action = this.getAttribute('href').substring(1);
+    //         showNotification('info', `${action.charAt(0).toUpperCase() + action.slice(1)} action triggered`);
+    //         profileDropdown.classList.remove('show');
+    //     });
+    // });
 
     const chartOptions = {
         chart: {
@@ -332,54 +333,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const notificationContainer = document.getElementById('notificationContainer');
 
-    function showNotification(type, message, duration = 5000) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
+    // function showNotification(type, message, duration = 5000) {
+    //     const notification = document.createElement('div');
+    //     notification.className = `notification notification-${type}`;
         
-        const iconMap = {
-            success: '<i class="fas fa-check-circle"></i>',
-            warning: '<i class="fas fa-exclamation-triangle"></i>',
-            info: '<i class="fas fa-info-circle"></i>',
-            error: '<i class="fas fa-times-circle"></i>'
-        };
+    //     const iconMap = {
+    //         success: '<i class="fas fa-check-circle"></i>',
+    //         warning: '<i class="fas fa-exclamation-triangle"></i>',
+    //         info: '<i class="fas fa-info-circle"></i>',
+    //         error: '<i class="fas fa-times-circle"></i>'
+    //     };
 
-        notification.innerHTML = `
-            <div class="notification-header">
-                <span class="notification-title">
-                    <span class="notification-icon">${iconMap[type]}</span>
-                    ${type.charAt(0).toUpperCase() + type.slice(1)}
-                </span>
-                <button class="notification-close">&times;</button>
-            </div>
-            <div class="notification-body">${message}</div>
-            <div class="notification-progress">
-                <div class="notification-progress-bar"></div>
-            </div>
-        `;
+    //     notification.innerHTML = `
+    //         <div class="notification-header">
+    //             <span class="notification-title">
+    //                 <span class="notification-icon">${iconMap[type]}</span>
+    //                 ${type.charAt(0).toUpperCase() + type.slice(1)}
+    //             </span>
+    //             <button class="notification-close">&times;</button>
+    //         </div>
+    //         <div class="notification-body">${message}</div>
+    //         <div class="notification-progress">
+    //             <div class="notification-progress-bar"></div>
+    //         </div>
+    //     `;
 
-        notificationContainer.appendChild(notification);
+    //     notificationContainer.appendChild(notification);
 
-        setTimeout(() => notification.classList.add('show'), 10);
+    //     setTimeout(() => notification.classList.add('show'), 10);
 
-        const progressBar = notification.querySelector('.notification-progress-bar');
-        let width = 100;
-        const interval = setInterval(() => {
-            width -= 100 / (duration / 100);
-            progressBar.style.width = `${width}%`;
-            if (width <= 0) {
-                clearInterval(interval);
-                hideNotification(notification);
-            }
-        }, 100);
+    //     const progressBar = notification.querySelector('.notification-progress-bar');
+    //     let width = 100;
+    //     const interval = setInterval(() => {
+    //         width -= 100 / (duration / 100);
+    //         progressBar.style.width = `${width}%`;
+    //         if (width <= 0) {
+    //             clearInterval(interval);
+    //             hideNotification(notification);
+    //         }
+    //     }, 100);
 
-        notification.querySelector('.notification-close').addEventListener('click', () => {
-            clearInterval(interval);
-            hideNotification(notification);
-        });
+    //     notification.querySelector('.notification-close').addEventListener('click', () => {
+    //         clearInterval(interval);
+    //         hideNotification(notification);
+    //     });
 
-        function hideNotification(notification) {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }
-    }
+    //     function hideNotification(notification) {
+    //         notification.classList.remove('show');
+    //         setTimeout(() => notification.remove(), 300);
+    //     }
+    // }
 });
